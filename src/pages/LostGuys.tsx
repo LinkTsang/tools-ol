@@ -73,6 +73,7 @@ function LostGuys() {
                         placeholder="所有娃"
                         value={allGuys}
                         onChange={allGuysChange}
+                        rows={8}
                     />
                 </Form.Item>
                 <Form.Item label="在的娃">
@@ -80,6 +81,7 @@ function LostGuys() {
                         placeholder="在的娃"
                         value={currentGuys}
                         onChange={currentGuysChange}
+                        rows={8}
                     />
                 </Form.Item>
             </Form>
