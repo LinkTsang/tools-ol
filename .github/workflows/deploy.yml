@@ -4,9 +4,9 @@ name: deploy
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,6 +26,11 @@ jobs:
       # Set up nodejs
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
-      - run: npm install
-      - run: npm run deploy
+          node-version: "14"
+      - run: |
+          npm install
+          npm run build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
