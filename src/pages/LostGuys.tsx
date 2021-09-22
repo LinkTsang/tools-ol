@@ -5,6 +5,7 @@
 
 import { Card, Form, Input, PageHeader } from "antd";
 import { ChangeEvent, useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import _ from "lodash";
 import { useHistory } from "react-router-dom";
 
@@ -56,6 +57,10 @@ function LostGuys() {
 
     return (
         <Card>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>走丢的娃</title>
+            </Helmet>
             <PageHeader
                 className="site-page-header"
                 onBack={() => history.push("/tools")}
