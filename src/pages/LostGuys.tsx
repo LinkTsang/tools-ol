@@ -10,8 +10,14 @@ import _ from "lodash";
 import { useHistory } from "react-router-dom";
 
 const diffGuys = (allGuys: string, currentGuys: string) => {
-    const allGuys_ = allGuys.trim().split(/[\n\s,，]+/);
-    const currentGuys_ = currentGuys.trim().split(/[\n\s,，]+/);
+    const allGuys_ = allGuys
+        .trim()
+        .split(/[\n\s,，]+/)
+        .filter((v) => v !== "");
+    const currentGuys_ = currentGuys
+        .trim()
+        .split(/[\n\s,，]+/)
+        .filter((v) => v !== "");
     const lostGuys = _.difference(allGuys_, currentGuys_);
     const extraGuys = _.difference(currentGuys_, allGuys_);
     return [lostGuys, extraGuys];
